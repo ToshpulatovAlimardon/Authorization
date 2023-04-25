@@ -1,0 +1,363 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+}
+.container-flex {
+    display: flex;
+    height: inherit;
+}
+
+/* image box styles */
+
+.image-box {
+    transition: 1s linear;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: inherit;
+    background-image: url(./img/city.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    position: relative;
+    left: 0%;
+    z-index: 4;
+}
+.image-box.active {
+    transition: 1s linear;
+    left: 70%;
+    background-position: right center;
+}
+.image-box > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.image-box h3 {
+    color: #fff;
+    margin-top: 50px;
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.image-box p {
+    color: #fff;
+    font-size: 24px;
+    padding: 0 30px;
+    line-height: 35px;
+    letter-spacing: 0.5px;
+}
+.text-left {
+    z-index: 6;
+    transition: 0.4s linear;
+    position: relative;
+    right: 0;
+}
+.text-left.active {
+    transition: 0.5s linear;
+    right: 100%;
+}
+.text-right {
+    transition: 0.5s linear;
+    display: none;
+    z-index: 6;
+    position: relative;
+    left: 0;
+}
+.text-right.active {
+    transition: 0.5s linear;
+    left: 100%;
+}
+
+.image-box #sign-btn {
+    cursor: pointer;
+    z-index: 6;
+    width: 120px;
+    height: 40px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 600;
+    background-color: transparent;
+    border: 3px solid #fff;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin: auto auto 200px auto;
+}
+
+.image-box #sign-btn span:first-child {
+    transition: 1s linear;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.image-box #sign-btn span:last-child {
+    transition: 1s linear;
+    position: absolute;
+    top: 200%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image-box #sign-btn.active span:first-child {
+    transition: 1s linear;
+    top: -100%;
+}
+.image-box #sign-btn.active span:last-child {
+    transition: 1s linear;
+    top: 50%;
+}
+
+/* form box styles */
+.form-box {
+    transition: 1s linear;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    right: 0%;
+    z-index: 3;
+}
+.form-box.active {
+    transition: 1s linear;
+    right: 30%;
+}
+.form-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box form h3 {
+    color: #000;
+    margin-top: 50px;
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.form-box input {
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0, 0.3);
+    padding: 0 0 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    outline: none;
+    font-size: 18px;
+    width: 450px;
+}
+
+.form-box input::placeholder {
+    font-weight: 700;
+    color: rgb(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+
+.form-box button {
+    transition: 0.3s;
+    border-radius: 25px;
+    height: 50px;
+    margin: 30px 0 20px 0;
+    cursor: pointer;
+    background-color: orange;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.form-box button:hover {
+    transition: 0.3s;
+    transform: translateY(-2px);
+}
+.form-box button:last-child {
+    margin: 0;
+    border: 2px solid rgb(0, 0, 0, 0.3);
+    background-color: transparent;
+    color: rgb(0, 0, 0, 0.3);
+    font-weight: 600;
+}
+
+.form-box button:last-child span {
+    color: #000;
+}
+
+/****** media style ******* adaptation***/
+
+/****** 900 *******/
+@media (max-width: 900px) {
+    .form-box {
+        width: 60%;
+    }
+    .form-box.active {
+        right: 40%;
+    }
+    .image-box {
+        width: 40%;
+    }
+    .image-box.active {
+        left: 60%;
+    }
+}
+/****** 800 *******/
+@media (max-width: 800px) {
+    /***** form box ******/
+    .form-box {
+        width: 60%;
+    }
+    .form-box.active {
+        right: 40%;
+    }
+    /* form box form styles */
+
+    .form-box form h3 {
+        font-size: 30px;
+    }
+
+    .form-box form input {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .form-box form input::placeholder {
+        font-size: 14px;
+    }
+
+    .form-box form button {
+        font-size: 14px;
+    }
+
+    /* image box */
+    .image-box {
+        width: 40%;
+    }
+    .image-box.active {
+        left: 60%;
+    }
+
+    .image-box h3 {
+        font-size: 30px;
+    }
+
+    .image-box p {
+        font-size: 20px;
+    }
+}
+
+/****** 600 *******/
+@media (max-width: 600px) {
+    /* form box form styles */
+
+    .form-box form h3 {
+        font-size: 20px;
+    }
+
+    .form-box form input {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .form-box form input::placeholder {
+        font-size: 12px;
+    }
+
+    .form-box form button {
+        font-size: 12px;
+    }
+    .form-box {
+        width: 50%;
+    }
+    .form-box.active {
+        right: 50%;
+    }
+
+    /* image box */
+    .image-box {
+        width: 50%;
+    }
+    .image-box.active {
+        left: 50%;
+    }
+
+    .image-box h3 {
+        font-size: 20px;
+    }
+
+    .image-box p {
+        font-size: 16px;
+    }
+}
+
+/****** 500 *******/
+@media (max-width: 500px) {
+    /* form box form styles */
+
+    .form-box form h3 {
+        font-size: 18px;
+    }
+
+    .form-box form input {
+        max-width: 250px;
+        width: 100%;
+        padding: 0px 0 5px 0;
+        font-size: 12px;
+    }
+
+    .form-box form input::placeholder {
+        font-size: 9px;
+    }
+
+    .form-box form button {
+        font-size: 9px;
+        height: 30px;
+    }
+    .form-box {
+        width: 50%;
+        padding: 0 20px;
+    }
+    .form-box.active {
+        right: 50%;
+    }
+
+    /* image box */
+    .image-box {
+        width: 50%;
+    }
+    .image-box.active {
+        left: 50%;
+    }
+
+    .image-box h3 {
+        font-size: 18px;
+    }
+
+    .image-box p {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+}
